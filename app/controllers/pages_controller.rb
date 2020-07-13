@@ -1,5 +1,8 @@
 class PagesController < ApplicationController
-  def show
-    render template: "pages/#{params[:page]}"
+  def home
+    @topics = Topic.all.limit(5)
+  end
+
+  def dashboard
   end
 end

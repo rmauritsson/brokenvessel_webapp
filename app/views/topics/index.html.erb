@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row mb-3">
+    <% if user_signed_in? %>
+      <%= link_to "Create New Topic", new_topic_path, class: "btn btn-primary"%>
+    <% end %>
+  </div>
+  <div class="row">
+    <% if @topics.size > 0 %>
+      <% @topics.each do |topic|%>
+        <div class="card p-2">
+          <h6><%= link_to topic.name, topic %></h6>
+        </div>
+      <% end %>
+    <% else %>
+      <p>No Topics to display</p>
+    <% end %>
+  </div>
+</div>

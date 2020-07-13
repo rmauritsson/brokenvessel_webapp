@@ -54,15 +54,14 @@
 
       <div class="card">
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">Relations</li>
-          <li class="list-group-item">Financial Distress</li>
-          <li class="list-group-item">Family</li>
-          <li class="list-group-item">General Well-being</li>
+          <% @topics.each do |topic| %>
+            <li class="list-group-item"><%= link_to topic.name, topic %></li>
+          <% end %>
         </ul>
       </div>
 
       <div class="row px-3 mb-2 mt-4">
-        <%= link_to "View All", "", class: "btn btn-primary"%>
+        <%= link_to "View All", topics_path, class: "btn btn-primary"%>
       </div>
     </div>
   </div>
