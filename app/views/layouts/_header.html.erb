@@ -1,1 +1,25 @@
-<p>My header will come here</p>
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light pt-3 pb-3 mb-4 border-bottom">
+      <%= link_to 'Broken Vessel', root_path, class: "logo" %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <%= link_to 'Terms & Conditions', '#', class: "nav-link" %>
+        </li>
+      </ul>
+      <div class="form-inline my-2 my-lg-0">
+        <%= link_to 'Talk to Someone', '#', class: "nav-link" %>
+        <% if current_user.nil? %>
+          <%= link_to 'Log In', new_user_session_path, class: "btn btn-sm btn-outline-primary mx-2 my-2 my-sm-0" %>
+          <%= link_to 'Sign Up', new_user_registration_path, class: "btn btn-sm btn-primary mx-2 my-2 my-sm-0" %>
+        <% else %>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-sm btn-primary my-2 my-sm-0" %>
+        <% end %>
+      </div>
+    </div>
+  </nav>
+</div>
