@@ -45,7 +45,13 @@
   </div>
   <div class="row">
     <div class="col-8">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <% @posts.each do |post| %>
+        <div class="card p-3 mb-2">
+          <h5><%= link_to post.title, topic_post_path(post.topic_id, post) %></h5>
+          <br/>
+          <p><%= truncate post.body, length: 200 %></p>
+        </div>
+      <% end %>
     </div>
     <div class="col-4">
       <div class="row">

@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row mb-3">
+    <% if user_signed_in? %>
+      <%= link_to "Create New Post", new_post_path, class: "btn btn-primary"%>
+    <% end %>
+  </div>
+  <div class="row">
+    <% if @posts.size > 0 %>
+      <% @posts.each do |post|%>
+        <div class="card p-2">
+          <h6><%= link_to post.title, post %></h6>
+        </div>
+      <% end %>
+    <% else %>
+      <p>No Posts to display</p>
+    <% end %>
+  </div>
+</div>

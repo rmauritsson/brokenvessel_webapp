@@ -7,6 +7,7 @@ class TopicsController < ApplicationController
   end
 
   def show
+    @posts = @topic.posts
   end
 
   def new
