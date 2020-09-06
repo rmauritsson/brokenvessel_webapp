@@ -9,9 +9,20 @@
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       </ul>
       <div class="form-inline my-2 my-lg-0">
-        <%= link_to 'Talk to Someone', '#', class: "nav-link" %>
+        <%= link_to 'Talk to Someone', '#', class: "btn btn-outline-primary mx-2 my-2 my-sm-0" %>
         <% if user_signed_in? %>
-          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-sm btn-primary my-2 my-sm-0" %>
+          <div class="dropdown">
+            <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= current_user.full_name %>
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <%= link_to "Profile", 'profile_path', class: "dropdown-item" %>
+              <%= link_to "Settings", edit_user_registration_path, class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            </div>
+          </div>
+
         <% else %>
           <%= link_to 'Log In', new_user_session_path, class: "btn btn-sm btn-outline-primary mx-2 my-2 my-sm-0" %>
           <%= link_to 'Sign Up', new_user_registration_path, class: "btn btn-sm btn-primary mx-2 my-2 my-sm-0" %>
